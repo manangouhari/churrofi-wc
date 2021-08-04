@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/churrofi-widgets.js';
+
+    const title = 'Hello owc World!';
+    render(
+      html`
+        <churrofi-widgets address="0x481eade762d6d0b49580189b78709c9347b395bf" name="HappyCelo">
+          
+        </churrofi-widgets>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
