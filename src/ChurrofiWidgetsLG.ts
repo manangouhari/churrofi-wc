@@ -1,8 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { until } from 'lit/directives/until.js';
-import { LogoXS } from './Logo';
+import { LogoTextXS } from './Logo';
 
 async function fetchTargetAPY() {
   const resp = await fetch(
@@ -13,7 +13,7 @@ async function fetchTargetAPY() {
   return json['target_apy'].slice(0, 4);
 }
 
-export class ChurrofiWidgetsSM extends LitElement {
+export class ChurrofiWidgetsLG extends LitElement {
   static styles = css`
     * {
       -webkit-font-smoothing: antialiased;
@@ -27,7 +27,7 @@ export class ChurrofiWidgetsSM extends LitElement {
       color: #505050;
       border: 2px solid #85e2b2;
       border-radius: 6px;
-      padding: 20px 30px;
+      padding: 30px 40px;
       box-shadow: 0 2px 4px 0 rgba(30, 30, 30, 0.1);
     }
 
@@ -38,19 +38,22 @@ export class ChurrofiWidgetsSM extends LitElement {
     }
 
     h3 {
-      font-size: 16px;
+      font-size: 20px;
       margin: 0;
       font-weight: 500;
     }
 
     #logo {
-      margin-left: 32px;
+      margin-left: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #sub {
-      font-size: 14px;
+      font-size: 16px;
       margin: 0;
-      margin-top: 8px;
+      margin-top: 10px;
     }
     a {
       display: flex;
@@ -62,7 +65,7 @@ export class ChurrofiWidgetsSM extends LitElement {
       margin-top: 20px;
       padding: 10px 0;
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 16px;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
     }
   `;
@@ -78,7 +81,7 @@ export class ChurrofiWidgetsSM extends LitElement {
       <div id="churrofi-widget-sm">
         <div class="head">
           <h3>Earn Profits by Investing CELOs</h3>
-          <div id="logo">${unsafeSVG(LogoXS)}</div>
+          <div id="logo">${unsafeHTML(LogoTextXS)}</div>
         </div>
         <p id="sub">
           Invest CELO by voting for Anchorage & get

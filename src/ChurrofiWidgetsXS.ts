@@ -15,6 +15,10 @@ async function fetchTargetAPY() {
 
 export class ChurrofiWidgetsXS extends LitElement {
   static styles = css`
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     a {
       display: inline-flex;
       align-items: center;

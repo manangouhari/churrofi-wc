@@ -18,12 +18,20 @@
     <div id="demo"></div>
 
     <script type="module">
+      // https://jsfiddle.net/ead637xy/16/
       import { html, render } from 'lit-html';
       import '../dist/churrofi-widgets-sm.js';
       import '../dist/churrofi-widgets-xs.js';
+      import '../dist/churrofi-widgets-lg.js';
 
       render(
         html`
+          <churrofi-widgets-lg
+            address="0x481eade762d6d0b49580189b78709c9347b395bf"
+            name="HappyCelo"
+          >
+          </churrofi-widgets-lg>
+          <hr />
           <churrofi-widgets-sm
             address="0x481eade762d6d0b49580189b78709c9347b395bf"
             name="HappyCelo"
