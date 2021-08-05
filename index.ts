@@ -1,1 +1,2 @@
-export { ChurrofiWidgets } from './src/ChurrofiWidgets.js';
+export { ChurrofiWidgetsXS } from './src/ChurrofiWidgetsXS.js';
+export { ChurrofiWidgetsSM } from './src/ChurrofiWidgetsSM';

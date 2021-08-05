@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { until } from 'lit/directives/until.js';
-import Logo from './Logo';
+import { LogoSM } from './Logo';
 
 async function fetchTargetAPY() {
   const resp = await fetch(
@@ -13,7 +13,7 @@ async function fetchTargetAPY() {
   return json['target_apy'].slice(0, 4);
 }
 
-export class ChurrofiWidgets extends LitElement {
+export class ChurrofiWidgetsXS extends LitElement {
   static styles = css`
     a {
       display: inline-flex;
@@ -29,6 +29,7 @@ export class ChurrofiWidgets extends LitElement {
     #logo {
       margin-right: 20px;
     }
+
     #sub {
       font-size: 14px;
       margin: 0;
@@ -52,7 +53,7 @@ export class ChurrofiWidgets extends LitElement {
         id="churrofi-widget-xs"
         href="${`https://churrofi.app/app/invest?vg=${this.address}`}"
         target="_blank"
-        ><div id="logo">${unsafeSVG(Logo)}</div>
+        ><div id="logo">${unsafeSVG(LogoSM)}</div>
         <div>
           <p id="sub">
             Invest CELO on ChurroFi & get upto ${until(this.APY, html`~5`)}%
