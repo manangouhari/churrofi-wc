@@ -22,10 +22,17 @@
       import { html, render } from 'lit-html';
       import '../dist/churrofi-widgets-sm.js';
       import '../dist/churrofi-widgets-xs.js';
+      import '../dist/churrofi-widgets-md.js';
       import '../dist/churrofi-widgets-lg.js';
 
       render(
         html`
+          <churrofi-widgets-md
+            address="0x481eade762d6d0b49580189b78709c9347b395bf"
+            name="HappyCelo"
+          >
+          </churrofi-widgets-md>
+          <hr />
           <churrofi-widgets-lg
             address="0x481eade762d6d0b49580189b78709c9347b395bf"
             name="HappyCelo"
