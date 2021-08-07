@@ -1,8 +1,10 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
+
 import { until } from 'lit/directives/until.js';
-import { LogoTextXS } from './Logo';
+import { LogoXS } from './Logo';
 
 async function fetchTargetAPY() {
   const resp = await fetch(
@@ -81,7 +83,7 @@ export class ChurrofiWidgetsLG extends LitElement {
       <div id="churrofi-widget-sm">
         <div class="head">
           <h3>Earn Profits by Investing CELOs</h3>
-          <div id="logo">${unsafeHTML(LogoTextXS)}</div>
+          <div id="logo">${unsafeSVG(LogoXS)}</div>
         </div>
         <p id="sub">
           Invest CELO by voting for Anchorage & get

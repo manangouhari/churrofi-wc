@@ -59,5 +59,3 @@ export const LogoXS = `<svg width="20" height="20" viewBox="0 0 20 20" fill="non
 </defs>
 </svg>
 `;
-
-export const LogoTextXS = `<img src="/assets/BrandLogo.png"/>`;
