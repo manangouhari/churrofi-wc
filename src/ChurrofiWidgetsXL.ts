@@ -136,7 +136,7 @@ export class ChurrofiWidgetsXL extends LitElement {
   @property({ type: String }) address = '';
   @property() name?: string;
   @property() celoAmount = 1000;
-  @property() usdAmount = 3500;
+  @property() usdAmount = 3000;
 
   handleCeloChange(event: Event) {
     const inp = event.target as HTMLInputElement;
@@ -147,7 +147,7 @@ export class ChurrofiWidgetsXL extends LitElement {
       this.celoAmount = Number(inp.value);
     }
 
-    this.usdAmount = this.celoAmount * 3.5;
+    this.usdAmount = this.celoAmount * 3;
   }
   handleUSDChange(event: Event) {
     const inp = event.target as HTMLInputElement;
@@ -155,7 +155,7 @@ export class ChurrofiWidgetsXL extends LitElement {
     if (inp.value === '') this.usdAmount = 0;
     else this.usdAmount = Number(inp.value);
 
-    this.celoAmount = this.usdAmount === 0 ? 0 : this.usdAmount / 3.3;
+    this.celoAmount = this.usdAmount === 0 ? 0 : this.usdAmount / 3;
   }
 
   render() {
@@ -181,12 +181,12 @@ export class ChurrofiWidgetsXL extends LitElement {
           <div id="earning">
             <p class="label">You could be earning:</p>
             <p id="earning-value">
-              $ ${(this.usdAmount * 0.05).toFixed(1)} <span>(anually)</span>
+              $ ${(this.usdAmount * 0.051).toFixed(1)} <span>(anually)</span>
             </p>
           </div>
         </div>
         <a
-          href="${`https://churrofi.app/app/invest?vg=${this.address}`}"
+          href="${`https://churrofi.app/app/invest?vg=${this.address}&amount=${this.celoAmount}`}"
           target="_blank"
         >
           Vote for
