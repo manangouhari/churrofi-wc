@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { until } from 'lit/directives/until.js';
 import { LogoXS } from './Logo';
@@ -102,6 +103,7 @@ export class ChurrofiWidgetsMD extends LitElement {
   @property() name?: string;
   @property() celoAmount = 1000;
   @property() usdAmount = 3000;
+  @property() theme?: string = 'white';
 
   handleCeloChange(event: Event) {
     const inp = event.target as HTMLInputElement;
@@ -128,8 +130,23 @@ export class ChurrofiWidgetsMD extends LitElement {
   }
 
   render() {
+    const WHITE = `#ffffff`;
+    const GRAY = `#f5f5f5`;
+    const DARK_GRAY = `#A8A8A8`;
+    const LIGHT_GREEN = `#D6F5E5`;
+    const GREEN = `#35D07F`;
+
+    const parentStyles = {
+      background:
+        this.theme === 'white'
+          ? WHITE
+          : this.theme === 'green'
+          ? LIGHT_GREEN
+          : null,
+    };
+
     return html`
-      <div id="churrofi-widget-sm">
+      <div id="churrofi-widget-sm" style=${styleMap(parentStyles)}>
         <div class="head">
           <h3>Earn Profits by Investing CELOs</h3>
           <div id="logo">${unsafeSVG(LogoXS)}</div>

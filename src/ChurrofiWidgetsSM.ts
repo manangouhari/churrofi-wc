@@ -1,5 +1,6 @@
 import { html, css, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { until } from 'lit/directives/until.js';
 import { LogoXS } from './Logo';
@@ -69,13 +70,26 @@ export class ChurrofiWidgetsSM extends LitElement {
 
   @property({ type: String }) address = '';
   @property({ type: String }) name = '';
+  @property() theme?: string = 'white';
 
   @state()
   private APY: Promise<string> = fetchTargetAPY();
 
   render() {
+    const WHITE = `#ffffff`;
+
+    const LIGHT_GREEN = `#D6F5E5`;
+
+    const parentStyles = {
+      background:
+        this.theme === 'white'
+          ? WHITE
+          : this.theme === 'green'
+          ? LIGHT_GREEN
+          : null,
+    };
     return html`
-      <div id="churrofi-widget-sm">
+      <div id="churrofi-widget-sm" style=${styleMap(parentStyles)}>
         <div class="head">
           <h3>Earn Profits by Investing CELOs</h3>
           <div id="logo">${unsafeSVG(LogoXS)}</div>
