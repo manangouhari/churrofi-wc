@@ -200,8 +200,11 @@ export class ChurrofiWidgetsXL extends LitElement {
           <div id="logo">${unsafeSVG(LogoXS)}</div>
         </div>
         <p id="sub">
-          Invest CELO by voting for Anchorage & get
-          ${until(this.APY, html`~5`)}% APY!
+          Invest CELO by voting for
+          ${this.name
+            ? html`${this.name}`
+            : html`${this.address.slice(0, 8)}...`}
+          & get ${until(this.APY, html`~5`)}% APY!
         </p>
         <div id="investment-calc">
           <div id="input-div">
@@ -233,17 +236,3 @@ export class ChurrofiWidgetsXL extends LitElement {
     `;
   }
 }
-
-// If you invest
-// <input
-//   type="number"
-//   .value=${this.celoAmount}
-//   @input=${this.handleCeloChange}
-// />
-//           CELOs ($
-//           <input
-//             type="number"
-//             .value=${this.usdAmount}
-//             @input=${this.handleUSDChange}
-//           />), you could be earning $ ${(this.usdAmount * 0.05).toFixed(1)}
-//           annually.

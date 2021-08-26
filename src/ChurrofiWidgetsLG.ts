@@ -100,8 +100,11 @@ export class ChurrofiWidgetsLG extends LitElement {
           <div id="logo">${unsafeSVG(LogoXS)}</div>
         </div>
         <p id="sub">
-          Invest CELO by voting for Anchorage & get
-          ${until(this.APY, html`~5`)}% APY!
+          Invest CELO by voting for
+          ${this.name
+            ? html`${this.name}`
+            : html`${this.address.slice(0, 8)}...`}
+          & get ${until(this.APY, html`~5`)}% APY!
         </p>
         <a
           href="${`https://churrofi.app/app/invest?vg=${this.address}`}"
